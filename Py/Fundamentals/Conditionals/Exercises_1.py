@@ -1,63 +1,73 @@
-# [Exercise] Python Fundamentals - Conditionals
-
+# [Exercises: Level 1] Python Fundamentals - Conditionals
 
 '''
-Get user input using input(“Enter your age: ”). 
-If user is 18 or older, give feedback: You are old enough to drive. 
-If below 18 give feedback to wait for the missing amount of years. 
+Write a code which gives grade to students according to theirs scores:
+80-100, A
+70-89, B
+60-69, C
+50-59, D
+0-49, F
 '''
-def check_driving_age():
-    age = int(input("Enter your age: "))
-    if age >= 18:
-        print("You are old enough to drive.")
+def assign_grade(score):
+    if 80 <= score <= 100:
+        return 'A'
+    elif 70 <= score <= 79:
+        return 'B'
+    elif 60 <= score <= 69:
+        return 'C'
+    elif 50 <= score <= 59:
+        return 'D'
+    elif 0 <= score <= 49:
+        return 'F'
     else:
-        print(f"You need {18 - age} more years to learn to drive.")
+        return 'Invalid score'
 
 '''
-Compare the values of my_age and your_age using if … else. 
-Who is older (me or you)? Use input(“Enter your age: ”) to get the age as input. 
-You can use a nested condition to print 'year' for 1 year difference in age, 'years' for bigger differences, and a custom text if my_age = your_age.
+Check if the season is Autumn, Winter, Spring or Summer. 
+If the user input is: September, October or November, the season is Autumn. December, January or February, the season is Winter. 
+March, April or May, the season is Spring June, July or August, the season is Summer.
 '''
-def compare_ages():
-    my_age = 25  # Example age
-    your_age = int(input("Enter your age: "))
-    if your_age > my_age:
-        diff = your_age - my_age
-        if diff == 1:
-            print("You are 1 year older than me.")
-        else:
-            print(f"You are {diff} years older than me.")
-    elif your_age < my_age:
-        diff = my_age - your_age
-        if diff == 1:
-            print("I am 1 year older than you.")
-        else:
-            print(f"I am {diff} years older than you.")
+def determine_season(month):
+    month = month.capitalize()
+    if month in ['September', 'October', 'November']:
+        return 'Autumn'
+    elif month in ['December', 'January', 'February']:
+        return 'Winter'
+    elif month in ['March', 'April', 'May']:
+        return 'Spring'
+    elif month in ['June', 'July', 'August']:
+        return 'Summer'
     else:
-        print("We are the same age.")
+        return 'Invalid month'
 
 '''
-Get two numbers from the user using input prompt. 
-If a is greater than b return a is greater than b, if a is less b return a is smaller than b, else a is equal to b.
+The following list contains some fruits:
+fruits = ['banana', 'orange', 'mango', 'lemon']
+
+If a fruit doesn't exist in the list add the fruit to the list and print the modified list. 
+If the fruit exists print('That fruit already exist in the list')
 '''
-def compare_numbers():
-    a = int(input("Enter number one: "))
-    b = int(input("Enter number two: "))
-    if a > b:
-        print(f"{a} is greater than {b}")
-    elif a < b:
-        print(f"{a} is smaller than {b}")
+def check_and_add_fruit(fruit, fruits_list):
+    fruit = fruit.lower()
+    if fruit in fruits_list:
+        print('That fruit already exists in the list')
     else:
-        print(f"{a} is equal to {b}")
+        fruits_list.append(fruit)
+        print('Modified list:', fruits_list)
 
-# Execute the functions
-check_driving_age()
-check_driving_age()
+# Test the assign_grade function
+score = int(input("Enter the score: ")) # input: 86
+print("Grade:", assign_grade(score))
 
 print()
 
-compare_ages()
+# Test the determine_season function
+month = input("Enter the month: ") # input: September
+print("Season:", determine_season(month)) 
 
 print()
 
-compare_numbers()
+# Test the check_and_add_fruit function
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruit = input("Enter a fruit: ") # input: orange
+check_and_add_fruit(fruit, fruits)
