@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Exercises</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Exercises_3</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7509,19 +7509,7 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Install-and-import-pandas,-checking-setup">Install and import pandas, checking setup<a class="anchor-link" href="#Install-and-import-pandas,-checking-setup">¶</a></h1><p>Getting started and checking your pandas setup
-Difficulty: easy</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7529,17 +7517,43 @@ Difficulty: easy</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 0. Install pandas.</span>
-<span class="o">%</span><span class="k">pip</span> install pandas
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># [Exercises: Level 3] Python Fundamentals - Functions</span>
 
-<span class="c1"># 1. Import pandas under the alias pd.</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="sd">'''</span>
+<span class="sd">Write a function called is_prime, which checks if a number is prime.</span>
 
-<span class="c1"># 2. Print the version of pandas that has been imported.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="sd">Write a functions which checks if all items are unique in the list.</span>
 
-<span class="c1"># 3. Print out all the version information of the libraries that are required by the pandas library.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">show_versions</span><span class="p">())</span>
+<span class="sd">Write a function which checks if all the items of the list are of the same data type.</span>
+<span class="sd">'''</span>
+
+<span class="c1"># 1. Function to check if a number is prime</span>
+<span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="c1"># 2. Function to check if all items in a list are unique</span>
+<span class="k">def</span> <span class="nf">are_all_items_unique</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">lst</span><span class="p">))</span>
+
+<span class="c1"># 3. Function to check if all items in a list are of the same data type</span>
+<span class="k">def</span> <span class="nf">are_all_items_same_type</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">lst</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="n">first_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">first_type</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">)</span>
+
+<span class="c1"># Testing the functions</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_prime</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>  <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_prime</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">are_all_items_unique</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>  <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">are_all_items_unique</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>  <span class="c1"># False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">are_all_items_same_type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>  <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">are_all_items_same_type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>  <span class="c1"># False</span>
 </pre></div>
 </div>
 </div>
@@ -7552,435 +7566,12 @@ Difficulty: easy</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Requirement already satisfied: pandas in d:\projects\mlprojects\applied-python-training\.venv\lib\site-packages (2.2.2)
-Requirement already satisfied: numpy&gt;=1.22.4 in d:\projects\mlprojects\applied-python-training\.venv\lib\site-packages (from pandas) (2.1.0)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in d:\projects\mlprojects\applied-python-training\.venv\lib\site-packages (from pandas) (2.9.0.post0)
-Requirement already satisfied: pytz&gt;=2020.1 in d:\projects\mlprojects\applied-python-training\.venv\lib\site-packages (from pandas) (2024.1)
-Requirement already satisfied: tzdata&gt;=2022.7 in d:\projects\mlprojects\applied-python-training\.venv\lib\site-packages (from pandas) (2024.1)
-Requirement already satisfied: six&gt;=1.5 in d:\projects\mlprojects\applied-python-training\.venv\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
-Note: you may need to restart the kernel to use updated packages.
-2.2.2
-
-INSTALLED VERSIONS
-------------------
-commit                : d9cdd2ee5a58015ef6f4d15c7226110c9aab8140
-python                : 3.10.0.final.0
-python-bits           : 64
-OS                    : Windows
-OS-release            : 10
-Version               : 10.0.19045
-machine               : AMD64
-processor             : AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
-byteorder             : little
-LC_ALL                : None
-LANG                  : None
-LOCALE                : English_United States.1252
-
-pandas                : 2.2.2
-numpy                 : 2.1.0
-pytz                  : 2024.1
-dateutil              : 2.9.0.post0
-setuptools            : 57.4.0
-pip                   : 24.2
-Cython                : None
-pytest                : None
-hypothesis            : None
-sphinx                : None
-blosc                 : None
-feather               : None
-xlsxwriter            : None
-lxml.etree            : None
-html5lib              : None
-pymysql               : None
-psycopg2              : None
-jinja2                : 3.1.4
-IPython               : 8.26.0
-pandas_datareader     : None
-adbc-driver-postgresql: None
-adbc-driver-sqlite    : None
-bs4                   : 4.12.3
-bottleneck            : None
-dataframe-api-compat  : None
-fastparquet           : None
-fsspec                : None
-gcsfs                 : None
-matplotlib            : None
-numba                 : None
-numexpr               : None
-odfpy                 : None
-openpyxl              : None
-pandas_gbq            : None
-pyarrow               : None
-pyreadstat            : None
-python-calamine       : None
-pyxlsb                : None
-s3fs                  : None
-scipy                 : None
-sqlalchemy            : None
-tables                : None
-tabulate              : None
-xarray                : None
-xlrd                  : None
-zstandard             : None
-tzdata                : 2024.1
-qtpy                  : None
-pyqt5                 : None
-None
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="DataFrame-Basics">DataFrame Basics<a class="anchor-link" href="#DataFrame-Basics">¶</a></h1><p>A few of the fundamental routines for selecting, sorting, adding and aggregating data in DataFrames
-Difficulty: easy</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># 4. Create a DataFrame df from this dictionary data which has the index labels</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'animal'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'cat'</span><span class="p">,</span> <span class="s1">'cat'</span><span class="p">,</span> <span class="s1">'snake'</span><span class="p">,</span> <span class="s1">'dog'</span><span class="p">,</span> <span class="s1">'dog'</span><span class="p">,</span> <span class="s1">'cat'</span><span class="p">,</span> <span class="s1">'snake'</span><span class="p">,</span> <span class="s1">'cat'</span><span class="p">,</span> <span class="s1">'dog'</span><span class="p">,</span> <span class="s1">'dog'</span><span class="p">],</span>
-        <span class="s1">'age'</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-        <span class="s1">'visits'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-        <span class="s1">'priority'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'yes'</span><span class="p">,</span> <span class="s1">'yes'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">,</span> <span class="s1">'yes'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">,</span> <span class="s1">'yes'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">]}</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'f'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'h'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">,</span> <span class="s1">'j'</span><span class="p">]</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-
-<span class="c1"># 5. Display a summary of the basic information about this DataFrame and its data</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
-
-<span class="c1"># 6. Return the first 3 rows of the DataFrame df</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-
-<span class="c1"># 7. Select just the ‘animal’ and ‘age’ columns from the DataFrame df</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">'animal'</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">]])</span>
-
-<span class="c1"># 8. Select the data in rows [3, 4, 8] and in columns ['animal', 'age']</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]],</span> <span class="p">[</span><span class="s1">'animal'</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">]])</span>
-
-<span class="c1"># 9. Select only the rows where the number of visits is greater than 3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'visits'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">])</span>
-
-<span class="c1"># 10. Select the rows where the age is missing, i.e. it is NaN</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'age'</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()])</span>
-
-<span class="c1"># 11. Select the rows where the animal is a cat and the age is less than 3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">'animal'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'cat'</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'age'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)])</span>
-
-<span class="c1"># 12. Select the rows where the age is between 2 and 4 (inclusive)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'age'</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>
-
-<span class="c1"># 13. Change the age in row ‘f’ to 1.5</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'f'</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="c1"># 14. Calculate the sum of all visits in df (i.e. find the total number of visits)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'visits'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-
-<span class="c1"># 15. Calculate the mean age for each different animal in df</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'animal'</span><span class="p">)[</span><span class="s1">'age'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-
-<span class="c1"># 16. Append a new row ‘k’ to df with your choice of values for each column. Then delete that row to return the original DataFrame</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'k'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'dog'</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'yes'</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'k'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="c1"># 17. Count the number of each type of animal in df</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'animal'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-
-<span class="c1"># 18. Sort df first by the values in the ‘age’ in descending order, then by the value in the ‘visits’ column in ascending order</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'age'</span><span class="p">,</span> <span class="s1">'visits'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]))</span>
-
-<span class="c1"># 19. Replace the 'priority' column with boolean values: ‘yes’ should be True and ‘no’ should be False</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'priority'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'priority'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">'yes'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="c1"># 20. In the ‘animal’ column, change the ‘snake’ entries to ‘python’</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'animal'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'animal'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'snake'</span><span class="p">,</span> <span class="s1">'python'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="c1"># 21. For each animal type and each number of visits, find the mean age (use pivot table)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">'animal'</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">'visits'</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">'age'</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">'mean'</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
-Index: 10 entries, a to j
-Data columns (total 4 columns):
- #   Column    Non-Null Count  Dtype  
----  ------    --------------  -----  
- 0   animal    10 non-null     object 
- 1   age       8 non-null      float64
- 2   visits    10 non-null     int64  
- 3   priority  10 non-null     object 
-dtypes: float64(1), int64(1), object(2)
-memory usage: 400.0+ bytes
-None
-  animal  age  visits priority
-a    cat  2.5       1      yes
-b    cat  3.0       3      yes
-c  snake  0.5       2       no
-  animal  age
-a    cat  2.5
-b    cat  3.0
-c  snake  0.5
-d    dog  NaN
-e    dog  5.0
-f    cat  2.0
-g  snake  4.5
-h    cat  NaN
-i    dog  7.0
-j    dog  3.0
-  animal  age
-d    dog  NaN
-e    dog  5.0
-i    dog  7.0
-Empty DataFrame
-Columns: [animal, age, visits, priority]
-Index: []
-  animal  age  visits priority
-d    dog  NaN       3      yes
-h    cat  NaN       1      yes
-  animal  age  visits priority
-a    cat  2.5       1      yes
-f    cat  2.0       3       no
-  animal  age  visits priority
-a    cat  2.5       1      yes
-b    cat  3.0       3      yes
-f    cat  2.0       3       no
-j    dog  3.0       1       no
-  animal  age  visits priority
-a    cat  2.5       1      yes
-b    cat  3.0       3      yes
-c  snake  0.5       2       no
-d    dog  NaN       3      yes
-e    dog  5.0       2       no
-f    cat  1.5       3       no
-g  snake  4.5       1       no
-h    cat  NaN       1      yes
-i    dog  7.0       2       no
-j    dog  3.0       1       no
-19
-animal
-cat      2.333333
-dog      5.000000
-snake    2.500000
-Name: age, dtype: float64
-  animal  age  visits priority
-a    cat  2.5       1      yes
-b    cat  3.0       3      yes
-c  snake  0.5       2       no
-d    dog  NaN       3      yes
-e    dog  5.0       2       no
-f    cat  1.5       3       no
-g  snake  4.5       1       no
-h    cat  NaN       1      yes
-i    dog  7.0       2       no
-j    dog  3.0       1       no
-k    dog  5.5       2      yes
-  animal  age  visits priority
-a    cat  2.5       1      yes
-b    cat  3.0       3      yes
-c  snake  0.5       2       no
-d    dog  NaN       3      yes
-e    dog  5.0       2       no
-f    cat  1.5       3       no
-g  snake  4.5       1       no
-h    cat  NaN       1      yes
-i    dog  7.0       2       no
-j    dog  3.0       1       no
-animal
-cat      4
-dog      4
-snake    2
-Name: count, dtype: int64
-  animal  age  visits priority
-i    dog  7.0       2       no
-e    dog  5.0       2       no
-g  snake  4.5       1       no
-j    dog  3.0       1       no
-b    cat  3.0       3      yes
-a    cat  2.5       1      yes
-f    cat  1.5       3       no
-c  snake  0.5       2       no
-h    cat  NaN       1      yes
-d    dog  NaN       3      yes
-  animal  age  visits  priority
-a    cat  2.5       1      True
-b    cat  3.0       3      True
-c  snake  0.5       2     False
-d    dog  NaN       3      True
-e    dog  5.0       2     False
-f    cat  1.5       3     False
-g  snake  4.5       1     False
-h    cat  NaN       1      True
-i    dog  7.0       2     False
-j    dog  3.0       1     False
-   animal  age  visits  priority
-a     cat  2.5       1      True
-b     cat  3.0       3      True
-c  python  0.5       2     False
-d     dog  NaN       3      True
-e     dog  5.0       2     False
-f     cat  1.5       3     False
-g  python  4.5       1     False
-h     cat  NaN       1      True
-i     dog  7.0       2     False
-j     dog  3.0       1     False
-visits    1    2     3
-animal                
-cat     2.5  NaN  2.25
-dog     3.0  6.0   NaN
-python  4.5  0.5   NaN
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="DataFrames:-Beyond-the-Basics">DataFrames: Beyond the Basics<a class="anchor-link" href="#DataFrames:-Beyond-the-Basics">¶</a></h1><p>Slightly trickier: you may need to combine two or more methods to get the right answer
-Difficulty: medium</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 22. Filter out rows which contain the same integer as the row immediately above</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">]})</span>
-<span class="n">df_filtered</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span> <span class="o">!=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_filtered</span><span class="p">)</span>
-
-<span class="c1"># 23. Subtract the row mean from each element in the row</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<span class="n">df_subtracted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_subtracted</span><span class="p">)</span>
-
-<span class="c1"># 24. Return the column label with the smallest sum</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">'abcdefghij'</span><span class="p">))</span>
-<span class="n">smallest_sum_col</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">smallest_sum_col</span><span class="p">)</span>
-
-<span class="c1"># 25. Count unique rows ignoring duplicates</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<span class="n">unique_rows</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">unique_rows</span><span class="p">)</span>
-
-<span class="c1"># 26. Find the column which contains the third NaN value for each row</span>
-<span class="n">nan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.04</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.43</span><span class="p">,</span> <span class="mf">0.71</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">],</span>
-        <span class="p">[</span> <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.67</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">],</span>
-        <span class="p">[</span> <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.4</span> <span class="p">,</span>  <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.24</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
-        <span class="p">[</span><span class="mf">0.49</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">],</span>
-        <span class="p">[</span> <span class="n">nan</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.61</span><span class="p">,</span>  <span class="n">nan</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">0.68</span><span class="p">]]</span>
-<span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'abcdefghij'</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">third_nan</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">third_nan</span><span class="p">)</span>
-
-<span class="c1"># 27. Find the sum of the three greatest values for each group</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'grps'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'aaabbcaabcccbbc'</span><span class="p">),</span> 
-                   <span class="s1">'vals'</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">345</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">235</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">87</span><span class="p">]})</span>
-
-<span class="c1"># Group by 'grps', then use `nlargest` and aggregate the sum</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'grps'</span><span class="p">)[</span><span class="s1">'vals'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-
-<span class="c1"># 28. For each group of 10 consecutive integers in ‘A’, calculate the sum of the corresponding values in column ‘B’</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">8765</span><span class="p">)</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">])</span>
-
-<span class="c1"># Setting observed=True to adopt the future default behavior</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'A'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">'B'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>   A
-0  1
-1  2
-3  3
-4  4
-5  5
-8  6
-9  7
-          0         1         2
-0 -0.260180 -0.322444  0.582624
-1  0.490632 -0.288122 -0.202510
-2 -0.429190  0.166004  0.263186
-3 -0.242244  0.017533  0.224711
-4 -0.003536 -0.260068  0.263604
-a
-5
-0    e
-1    c
-2    d
-3    h
-4    d
-dtype: object
-grps
-a    409
-b    156
-c    345
-Name: vals, dtype: int64
-A
-(0, 10]      635
-(10, 20]     360
-(20, 30]     315
-(30, 40]     306
-(40, 50]     750
-(50, 60]     284
-(60, 70]     424
-(70, 80]     526
-(80, 90]     835
-(90, 100]    852
-Name: B, dtype: int32
+<pre>True
+False
+True
+False
+True
+False
 </pre>
 </div>
 </div>
